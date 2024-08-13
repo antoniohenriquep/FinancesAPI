@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../db/config");
-const Income = require("./Income");
 
+//Model de usuario
 const User = sequelize.define('User',{
     name:{
         type: DataTypes.STRING, 
@@ -15,11 +15,7 @@ const User = sequelize.define('User',{
         type: DataTypes.STRING, 
         allowNull:false
     },
+    
 })
-
-User.hasMany(Income)
-User.hasMany(Expense)
-User.hasMany(MonthlyBalance)
-User.hasMany(BalanceHistory)
 
 module.exports = User
