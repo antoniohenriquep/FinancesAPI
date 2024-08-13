@@ -23,7 +23,7 @@ function setupAssociations() {
     Installment.belongsTo(Expense) //Um numero de parcelas pode pertencer a apenas uma despesa
     
     // MonthlyBalance Associations
-    MonthlyBalance.belongsTo(User);
+    MonthlyBalance.belongsTo(User) //Um balanco pode pertencer a apenas um usuario
 
 }
 

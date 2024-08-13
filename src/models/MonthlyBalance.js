@@ -32,7 +32,7 @@ const MonthlyBalance = sequelize.define('MonthlyBalance',{
         type: DataTypes.FLOAT,
         allowNull:false,
         defaultValue:0,
-        get() {
+        set() {
             // Calcula o saldo líquido automaticamente
             return this.getDataValue('totalFixedIncome') + 
                    this.getDataValue('totalVariableIncome') - 
