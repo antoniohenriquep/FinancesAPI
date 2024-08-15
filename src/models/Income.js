@@ -18,11 +18,14 @@ const Income = sequelize.define('Income',{
         type:DataTypes.FLOAT,
         allowNull:false
     },
-    date: { 
+    date:{ 
         type: DataTypes.DATEONLY,
         allowNull: true, // Data é necessária apenas para ganhos variáveis
+
+        //O campo validate é usado para verificar se algum atributo é verdadeiro
         validate: {
             isDate: true,
+            //Neste caso o value refere-se a date. Ou seja, se nao temos uma data especificada e o tipo de ganho eh variavel, nao será possivel registrar o objeto no banco de dados.
             isDateValid(value) {
                 if (this.type === 'variable' && !value) {
                     throw new Error('A data é obrigatória para ganhos variáveis.');
