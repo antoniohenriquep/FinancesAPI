@@ -35,17 +35,6 @@ const MonthlyBalance = sequelize.define('MonthlyBalance',{
         type: DataTypes.FLOAT,
         allowNull:false,
         defaultValue:0,
-    },
-    //Metodos para instancias do model
-    instanceMethods:{
-        //Metodo que vai recalcular o balanco quando for chamado. 
-        async calculateAndSave()
-        {
-            const recalculatedBalance = this.totalFixedIncome + this.totalVariableIncome - this.totalExpense
-
-            this.balance = recalculatedBalance
-            await this.save()
-        }
     }
 })
 
