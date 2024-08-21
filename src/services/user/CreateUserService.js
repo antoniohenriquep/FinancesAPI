@@ -17,14 +17,16 @@ async function execute({name,email,password})
     
     const hashedPassword = await hash(password,10)
 
-    const user = await User.create({
+    await User.create({
         name,
         email,
         password: hashedPassword
-    },
-    {
-        fields:['name','email','password']
     })
+
+    const user = {
+        name,
+        email
+    }
 
     return user
 }
