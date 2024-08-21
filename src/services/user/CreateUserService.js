@@ -28,3 +28,5 @@ async function execute({name,email,password})
 
     return user
 }
+
+module.exports = {execute}

@@ -2,8 +2,12 @@ require('dotenv').config()
 const express = require('express')
 const { sequelize } = require('./db/config')
 const setupAssociations = require('./db/associations')
+const routes = require('./routes')
 
 const server = express()
+
+server.use(express.json())
+
 async function syncDatabase() {
 
     try {
@@ -17,8 +21,6 @@ async function syncDatabase() {
 
 syncDatabase();
 
-server.get('/',(req,res)=>{
-    res.send('ola mundo')
-})
+server.use('/', routes)
 
 server.listen(process.env.PORT,()=>{console.log('ola mundo')})
