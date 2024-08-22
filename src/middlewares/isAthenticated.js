@@ -1,4 +1,4 @@
-require('jsonwebtoken').config()
+require('dotenv').config()
 const { verify } = require("jsonwebtoken");
 
 function isAuthenticated(req,res,next){
