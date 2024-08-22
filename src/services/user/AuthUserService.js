@@ -35,10 +35,11 @@ async function execute({email, password})
 
         //Opcoes
         {
-            subject:toString(user.id), //Identificador unico do usuario
+            subject:JSON.stringify(user.id), //Identificador unico do usuario
             expiresIn:'10d' //Tempo de expiracao do token
         }
     )
+    console.log(user.id)
 
     return {
         id:user.id,
