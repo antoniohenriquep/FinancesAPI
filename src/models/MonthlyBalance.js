@@ -4,7 +4,7 @@ const { sequelize } = require("../db/config");
 const MonthlyBalance = sequelize.define('MonthlyBalance',{
     //Mes do relatorio
     month:{
-        type:DataTypes.STRING,
+        type:DataTypes.INTEGER,
         allowNull:false
     },
     //Ano do relatorio
