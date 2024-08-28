@@ -60,9 +60,11 @@ async function execute({description, type, amount, date, userId})
         monthlyBalance.balance = (monthlyBalance.totalFixedIncome + monthlyBalance.totalVariableIncome) - (monthlyBalance.totalFixedExpenses + monthlyBalance.totalVariableExpenses)
 
         await monthlyBalance.save()
-
+        return res.status(201).json({ message: 'Income criado com sucesso!', income: newIncome });
 
     } catch (error) {
-        
+        return res.status(500).json({ error: 'Erro ao criar Income.', details: error.message });
     }
 }
+
+module.exports = {execute}
