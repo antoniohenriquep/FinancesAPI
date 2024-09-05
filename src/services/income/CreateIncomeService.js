@@ -3,7 +3,7 @@ const MonthlyBalance = require("../../models/MonthlyBalance");
 const User = require("../../models/User");
 
 
-async function execute({description, type, amount, date, userId})
+async function execute({description,type,amount,userId, date})
 {
     try {
         const user = await User.findByPk(userId)
